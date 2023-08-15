@@ -44,16 +44,16 @@ services:
       - g_network
 
 volumes:
-  w_volume:
-    driver: local
-    driver_opts:
-      device: /home/abouazi/data/w_volume
-      type: none
-      o: bind
   db_volume:
     driver: local
     driver_opts:
       device: /home/abouazi/data/db_volume
+      type: none
+      o: bind
+  w_volume:
+    driver: local
+    driver_opts:
+      device: /home/abouazi/data/w_volume
       type: none
       o: bind
 
