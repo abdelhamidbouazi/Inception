@@ -23,31 +23,31 @@ services:
     # depends_on:
     #   - wordpress
     volumes:
-      - w_volume:/var/www/html
+      - wp_volume:/var/www/html
     env_file:
       - ../.env
     networks:
       - g_network
 
-  wordpress:
-    build: ./requirements/wordpress
-    container_name: wordpress
-    image: wordpress:inception
-    depends_on:
-      - mariadb
-    restart: always
-    volumes:
-      - w_volume:/var/www/html
-    env_file:
-      - ../.env
-    networks:
-      - g_network
+  # wordpress:
+  #   build: ./requirements/wordpress
+  #   container_name: wordpress
+  #   image: wordpress:inception
+  #   depends_on:
+  #     - mariadb
+  #   restart: always
+  #   volumes:
+  #     - wp_volume:/var/www/html
+  #   env_file:
+  #     - ../.env
+  #   networks:
+  #     - g_network
 
 volumes:
   db_volume:
     name: db_volume
-  w_volume:
-    name: w_volume
+  wp_volume:
+    name: wp_volume
 
 networks:
   g_network:

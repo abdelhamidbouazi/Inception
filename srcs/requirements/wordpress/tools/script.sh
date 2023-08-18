@@ -22,8 +22,8 @@ cp wp-config-sample.php wp-config.php
 
 # Configure WordPress database settings
 wp config set DB_NAME "wordpress" --allow-root
-wp config set DB_USER "abouazi" --allow-root
-wp config set DB_PASSWORD "abouazi0000" --allow-root
+wp config set DB_USER "abdelhamid_db" --allow-root
+wp config set DB_PASSWORD "abdelhamid_db" --allow-root
 wp config set DB_HOST "mariadb" --allow-root
 
 # Configure caching settings

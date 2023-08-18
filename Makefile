@@ -1,5 +1,5 @@
-COMPOSE_FILE := /Users/abdelhamidbouazi/Desktop/Inception/srcs/docker-compose.yml
-DATA_DIR := /Users/abdelhamidbouazi/data
+COMPOSE_FILE := /home/abouazi/inception_/srcs/docker-compose.yml
+DATA_DIR := /home/abouazi/data
 WP_VOLUME := wp_volume
 DB_VOLUME := db_volume
 
