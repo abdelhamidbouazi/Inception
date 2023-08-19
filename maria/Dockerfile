@@ -1,6 +1,6 @@
 FROM debian:buster
 
-RUN apt-get update && apt-get install -y mariadb-server
+RUN apt-get update && apt-get install mariadb-server -y
 
 COPY ./tools/script.sh /
 
