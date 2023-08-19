@@ -10,4 +10,4 @@ ENTRYPOINT [ "/script.sh" ]
 
 EXPOSE 3306
 
-CMD ["mysqld"]
+# CMD ["mysqld"]
