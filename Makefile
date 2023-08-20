@@ -8,7 +8,7 @@ DB_VOLUME := db_volume
 up:
 	@mkdir -p $(DATA_DIR)/wp
 	@mkdir -p $(DATA_DIR)/db
-	@docker-compose -f $(COMPOSE_FILE) up -d
+	@docker compose -f $(COMPOSE_FILE) up -d
 
 build:
 	@mkdir -p $(DATA_DIR)/wp

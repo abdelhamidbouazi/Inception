@@ -12,13 +12,13 @@ services:
       - db_volume:/var/lib/mysql
     networks:
      - g_network
+    ports:
+      - "3306:3306"
 
   nginx:
     build: ./requirements/nginx
     container_name: nginx
     image: nginx:abouazi
-    ports:
-      - '443:443'
     restart: always
     depends_on:
       - wordpress
@@ -26,6 +26,8 @@ services:
       - wp_volume:/var/www/html
     networks:
       - g_network
+    ports:
+      - '443:443'
 
   wordpress:
     env_file:
@@ -46,8 +48,18 @@ services:
 volumes:
   db_volume:
     name: db_volume
+    driver: local
+    driver_opts:
+      device: /home/abouazi/data/wp
+      type: none
+      o: bind
   wp_volume:
     name: wp_volume
+    driver: local
+    driver_opts:
+      device: /home/abouazi/data/db
+      type: none
+      o: bind
 
 networks:
   g_network:

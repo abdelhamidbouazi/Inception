@@ -9,8 +9,8 @@ server {
 
 	ssl_protocols TLSv1.3;
 
-	index index.html;
-	root /usr/share/nginx/html;
+	index index.php;
+	root /var/www/html;
 
 	location ~ [^/]\\.php(/|$) {
         try_files $uri =404;
