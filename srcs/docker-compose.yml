@@ -53,6 +53,7 @@ volumes:
       device: /home/abouazi/data/wp
       type: none
       o: bind
+      
   wp_volume:
     name: wp_volume
     driver: local
