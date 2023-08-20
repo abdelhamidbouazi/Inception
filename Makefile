@@ -1,4 +1,4 @@
-COMPOSE_FILE := /home/abouazi/inception_/srcs/docker-compose.yml
+COMPOSE_FILE := /home/abouazi/Inception/srcs/docker-compose.yml
 DATA_DIR := /home/abouazi/data
 WP_VOLUME := wp_volume
 DB_VOLUME := db_volume
@@ -13,10 +13,10 @@ up:
 build:
 	@mkdir -p $(DATA_DIR)/wp
 	@mkdir -p $(DATA_DIR)/db
-	@docker-compose -f $(COMPOSE_FILE) build
+	@docker compose -f $(COMPOSE_FILE) build
 
 down:
-	@docker-compose -f $(COMPOSE_FILE) down
+	@docker compose -f $(COMPOSE_FILE) down
 
 clean: down
 	@docker volume rm $(WP_VOLUME) $(DB_VOLUME)

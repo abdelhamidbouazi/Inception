@@ -2,46 +2,44 @@ version: '3.5'
 
 services:
   mariadb:
+    env_file:
+      - ../.env
     build: ./requirements/mariadb
     container_name: mariadb
-    image: mariadb:inception
+    image: mariadb:abouazi
     restart: always
     volumes:
       - db_volume:/var/lib/mysql
-    env_file:
-      - ../.env
     networks:
      - g_network
 
   nginx:
     build: ./requirements/nginx
     container_name: nginx
-    image: nginx:inception
+    image: nginx:abouazi
     ports:
       - '443:443'
     restart: always
-    # depends_on:
-    #   - wordpress
+    depends_on:
+      - wordpress
     volumes:
       - wp_volume:/var/www/html
-    env_file:
-      - ../.env
     networks:
       - g_network
 
-  # wordpress:
-  #   build: ./requirements/wordpress
-  #   container_name: wordpress
-  #   image: wordpress:inception
-  #   depends_on:
-  #     - mariadb
-  #   restart: always
-  #   volumes:
-  #     - wp_volume:/var/www/html
-  #   env_file:
-  #     - ../.env
-  #   networks:
-  #     - g_network
+  wordpress:
+    env_file:
+      - ../.env
+    build: ./requirements/wordpress
+    container_name: wordpress
+    image: wordpress:abouazi
+    depends_on:
+      - mariadb
+    restart: always
+    volumes:
+      - wp_volume:/var/www/html
+    networks:
+      - g_network
 
   # adminer:
   #   build: ./requirements/bonus/adminer

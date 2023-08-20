@@ -1,0 +1,26 @@
+version: '3.5'
+
+services:
+  nginx:
+    build: ./.
+    container_name: nginx
+    image: nginx:abouazi
+    ports:
+      - '443:443'
+    restart: always
+    # depends_on:
+    #   - wordpress
+    volumes:
+      - wp_volume:/var/www/html
+    env_file:
+      - ../.env
+    networks:
+      - g_network
+
+volumes:
+  wp_volume:
+    name: wp_volume
+
+networks:
+  g_network:
+   name: g_network
