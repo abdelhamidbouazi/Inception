@@ -40,40 +40,8 @@ services:
       - wp_volume:/var/www/html
     networks:
       - g_network
-
-  # adminer:
-  #   build: ./requirements/bonus/adminer
-  #   container_name: adminer
-  #   image: adminer:inception
-  #   ports:
-  #     - '8080:8080'
-  #   depends_on:
-  #     - mariadb
-  #   restart: always
-  #   networks:
-  #     - inception
-
-  # redis:
-  #   build: ./requirements/bonus/redis
-  #   container_name: redis
-  #   image: redis:inception
-  #   depends_on:
-  #     - wordpress
-  #   restart: always
-  #   volumes:
-  #     - WP:/var/www/html
-  #   networks:
-  #     - inception
-
-  # static_ws:
-  #   build: ./requirements/bonus/static_ws
-  #   container_name: static_ws
-  #   image: static_ws
-  #   restart: always
-  #   ports:
-  #     - '80:80'
-  #   networks:
-  #     - inception
+    ports:
+      - "9000:9000"
 
 volumes:
   db_volume:

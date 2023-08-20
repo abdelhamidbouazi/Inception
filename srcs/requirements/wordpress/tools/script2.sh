@@ -20,13 +20,13 @@ wp config set DB_NAME $MARIADB_DATABASE --allow-root
 wp config set DB_USER $MARIADB_USER --allow-root
 wp config set DB_PASSWORD $MARIADB_PASSWORD --allow-root
 wp config set DB_HOST "mariadb" --allow-root
-# wp config set WP_REDIS_HOST "redis-cache" --allow-root
-# wp config set WP_REDIS_PORT "6379" --allow-root
-# wp config set WP_CACHE "true" --allow-root
+wp config set WP_REDIS_HOST "redis-cache" --allow-root
+wp config set WP_REDIS_PORT "6379" --allow-root
+wp config set WP_CACHE "true" --allow-root
 wp core install  --url=$DOMAIN_NAME --title=$WP_TITLE --admin_user=$WP_ADMIN_USR --admin_password=$WP_ADMIN_PWD --admin_email=$WP_ADMIN_EMAIL --allow-root
 wp user create $WP_USR $WP_EMAIL --role=author --user_pass=$WP_PWD --allow-root
-# wp plugin install redis-cache --activate --allow-root
-# wp redis enable --allow-root
+wp plugin install redis-cache --activate --allow-root
+wp redis enable --allow-root
 
 # Start PHP-FPM
 mkdir /run/php
